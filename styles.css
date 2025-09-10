@@ -1,0 +1,332 @@
+/*OBS: btn = botão/ões*/
+
+/*raiz*/
+:root {
+  --bg1:#ffc6d0;           
+  --bg2:#b0ffff;           
+  --card:#ffffff;
+  --accent:#ff6ba8;    
+  --text:#2a2a2a;
+  --muted:#666;
+  --radius:12px;
+  --container-width:1100px;
+  --gap:1.25rem;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+* { box-sizing:border-box }
+/*corpo*/
+html,body { height:100% }
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #ed5d76 0%, var(--bg2) 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/*class conteiner*/
+.container {
+  width:calc(100% - 2rem);
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:2rem 0;
+}
+
+/*cabeçario*/
+.site-header {
+  background:var(--card);
+  border-bottom:2px solid var(--accent);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.site-header .container {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.site-header .logo img {
+  height:100px;
+  width:auto;
+  display:block;
+}
+.site-header h3 {
+  font-size:1.8rem;
+  color:black;
+  position:absolute;
+  left:120px;
+  top:20px;
+}
+
+/*rodapé*/
+.site-footer {
+  text-align:center;
+  padding:0.5rem 0;
+  background:#bbfffd;
+  border-top:2px solid var(--accent);
+}
+
+.nav ul {
+   list-style:none;
+   display:flex;
+   gap:1rem;margin:0;
+   padding:0 
+  }
+.nav a { 
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500 
+}
+.nav a:hover { 
+  color:var(--accent) 
+}
+
+/*mobile*/
+.menu-toggle {
+   display:none;
+   background:none;
+   border:0;
+   font-size:1.5rem;
+   cursor:pointer 
+  }
+.mobile-nav {
+   background:var(--card);
+   border-top:1px solid rgba(0,0,0,0.1) 
+  }
+.mobile-nav ul { 
+  list-style:none;
+  margin:0;
+  padding:1rem 
+}
+.mobile-nav a { 
+  text-decoration:none;
+  color:var(--text);
+  display:block;
+  padding:.5rem 0 
+}
+
+/*hero class*/
+.hero {
+  background:linear-gradient(180deg, rgba(255,107,168,0.2), rgba(255,107,168,0.05));
+  padding:4rem 0;
+  text-align:center;
+}
+.hero h1 { margin:0 0 0.5rem;font-size:2.2rem;color:var(--accent) }
+.hero p { margin:0 0 1rem;color:var(--muted) }
+
+/* Donut e sobreposição */
+.donut-sobre {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+.donut-sobre .donut {
+  width: 280px;
+  margin-left: 0;
+  margin-right: 2rem;
+}
+/*sobreposição de texto*/
+.sobre-texto {
+  position: absolute;
+  left: 160px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  max-width: 400px;
+}
+
+/* Carrinho */
+#carrinho {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.formas-pagamento {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.btn-pagamento {
+  flex: 1 1 100px;
+  padding: 10px 15px;
+  background-color: var(--bg1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn-pagamento:hover { background-color: var(--accent);color:white }
+
+.btn-pagar {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: var(--accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.3s ease;
+}
+.btn-pagar:hover { background-color: #ff1493 }
+
+.btn { background:var(--accent);
+  color:white;
+  padding:.6rem 1rem;
+  border-radius:var(--radius);
+  border:none;cursor:pointer;
+  font-weight:600;
+  text-decoration:none 
+}
+
+.btn:hover { 
+  opacity:0.9 
+}
+
+.btn.ghost {
+  background:transparent;
+  color:var(--accent);
+  border:2px solid var(--accent)
+ }
+
+.btn.small {
+   padding:.4rem .7rem;
+  font-size:.9rem 
+}
+
+.section { 
+  padding:2rem 0
+ }
+
+ /*Retangulo branco onde ficam os produtos*/
+.grid .cards { 
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin-top:1rem 
+}
+.card {
+   background:var(--card);
+   padding:1rem;
+   border-radius:var(--radius);
+   text-align:center;
+   box-shadow:0 4px 12px rgba(0,0,0,0.05) 
+  }
+.card img {
+   max-width:100%;
+   border-radius:var(--radius)
+   }
+.card h3 { 
+  margin:.8rem 0 .4rem;
+  color:var(--accent) 
+}
+.card p {
+   color:var(--muted) 
+  }
+
+  /*Caixinhas de texto-mensagem*/
+.form { 
+  display:flex;
+  flex-direction:column;
+  gap:.8rem;
+  max-width:600px 
+}
+.form label { 
+  font-weight:600
+ }
+.form input,.form textarea { 
+  border:1px solid rgba(0,0,0,0.1);
+  padding: 0.6rem;;
+  border-radius:var(--radius);
+  font:inherit;
+  background:white;
+  display: block;
+  width: 200px
+ }
+.form-status {
+   font-size:.9rem;
+   color:var(--muted) 
+  }
+
+  #contact-form .btn {
+  width: 200px;  
+  align-self: flex-start;
+}
+
+  /*Rodapé*/
+.site-footer {
+   text-align:center;
+   padding:1rem 0;
+   background:var(--card);
+   border-top:2px solid var(--accent)
+   }
+.small { 
+  font-size:.85rem;
+  color:var(--muted) 
+}
+
+@media (max-width:800px){
+  .nav{display:none}
+  .menu-toggle{display:block}
+}
+
+/*tabela de horários*/
+table, th, td {
+   border: 1px solid #ddd;
+   border-collapse: collapse;
+   padding: 8px;
+   border-color: #000000;
+}
+
+/*parte escorrida/mordida*/
+.decor-mordidas img {
+   display:block;
+   width:100%;
+   max-height:100px;
+   object-fit:cover;
+  margin-bottom:-20px 
+}
+
+/* Donut giratório */
+.donut { 
+  width:200px;
+  transition: transform 0.2s ease-out
+ }
+.spacer {
+   height:100vh;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   font-size:1.5rem;
+   color:#555
+   }
+
+   /* Botão de login no menu */
+.nav a.btn-login {
+  background-color: var(--accent); 
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.nav a.btn-login:hover {
+  opacity: 0.8;
+}
