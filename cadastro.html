@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro - Three Donuts</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cadastro-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .cadastro-box {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    .cadastro-box h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .cadastro-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .cadastro-box input {
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 0.6rem;
+      border-radius: var(--radius);
+      font: inherit;
+    }
+    .cadastro-box button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cadastro-box button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="cadastro-container">
+    <div class="cadastro-box">
+      <h2>Criar Conta</h2>
+      <form>
+        <input type="text" placeholder="Nome completo" required />
+        <input type="email" placeholder="E-mail" required />
+        <input type="text" placeholder="Usuário" required />
+        <input type="password" placeholder="Senha" required />
+        <input type="password" placeholder="Confirmar senha" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+      <p style="margin-top:1rem;font-size:.9rem;color:var(--muted);">
+        Já tem conta? <a href="login.html">Fazer login</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
