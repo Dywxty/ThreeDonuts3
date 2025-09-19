@@ -2,11 +2,11 @@
 
 /*raiz*/
 :root {
-  --bg1:#ffe9ed;           
-  --bg2:#abffff;           
+  --bg1:#ffe5eb;     
+  --bg2:#a4fefe;     
   --card:#ffffff;
-  --accent:#ff6ba8;    
-  --text:#2a2a2a;
+  --accent:#ffb2d2;    
+  --text:#666;       
   --muted:#666;
   --radius:12px;
   --container-width:1100px;
@@ -19,7 +19,7 @@
 html,body { height:100% }
 body {
     margin: 0;
-    background: linear-gradient(180deg, #ed5d76 0%, var(--bg2) 100%);
+    background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
     background-attachment: fixed;
     color: var(--text);
     line-height: 1.5;
@@ -107,14 +107,35 @@ body {
   padding:.5rem 0 
 }
 
-/*hero class*/
+/* hero (faixa inicial) */
 .hero {
-  background:linear-gradient(180deg, rgba(255,107,168,0.2), rgba(255,107,168,0.05));
   padding:4rem 0;
   text-align:center;
 }
-.hero h1 { margin:0 0 0.5rem;font-size:2.2rem;color:var(--accent) }
-.hero p { margin:0 0 1rem;color:var(--muted) }
+.hero h1 { 
+  margin:0 0 0.5rem;
+  font-size:2.2rem;
+  color:var(--text);/*cinza*/   
+}
+.hero p { 
+  margin:0 0 1rem;
+  color:var(--text);         
+}
+.hero .btn {
+  background:var(--accent);
+  color:white;
+}
+.hero .btn.ghost {
+  background:transparent;
+  color:var(--text);         
+  border:2px solid var(--text);
+}
+
+/* logo maior */
+.site-header .logo img {
+  height:140px;   
+  width:auto;
+}
 
 /* Donut e sobreposição */
 .donut-sobre {
@@ -129,16 +150,18 @@ body {
   margin-left: 0;
   margin-right: 2rem;
 }
-/*sobreposição de texto*/
+
+/*Texto da caixinh 'sobre'*/
 .sobre-texto {
   position: absolute;
   left: 160px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.7);
-  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.9);
+  padding: 2rem 2.5rem;       
   border-radius: var(--radius);
-  max-width: 400px;
+  max-width: 500px;          
+  font-size: 1.1rem;         
 }
 
 /* Carrinho */
@@ -156,6 +179,7 @@ body {
   flex-wrap: wrap;
   margin-top: 15px;
   justify-content: center;
+  color: #666;
 }
 
 .btn-pagamento {
@@ -167,8 +191,11 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
+  color: #666;
 }
-.btn-pagamento:hover { background-color: var(--accent);color:white }
+.btn-pagamento:hover { 
+  background-color: var(--accent);
+  color:white }
 
 .btn-pagar {
   margin-top: 20px;
@@ -185,7 +212,7 @@ body {
   margin-right: auto;
   transition: background 0.3s ease;
 }
-.btn-pagar:hover { background-color: #ff1493 }
+.btn-pagar:hover { background-color: #ffa9d7 }
 
 .btn { background:var(--accent);
   color:white;
@@ -268,6 +295,7 @@ body {
   #contact-form .btn {
   width: 200px;  
   align-self: flex-start;
+  color: #ffffff;
 }
 
   /*Rodapé*/
@@ -318,7 +346,7 @@ table, th, td {
    color:#555
    }
 
-   /* Botão de login no menu */
+/* Botão de login no menu */
 .nav a.btn-login {
   background-color: var(--accent); 
   color: white;
