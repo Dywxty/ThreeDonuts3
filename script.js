@@ -128,3 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/*Login*/
+
+function entrarLogin(login){
+    if (login == '#entrar'){
+    window.location.href = '#entrar'
+}  
+}

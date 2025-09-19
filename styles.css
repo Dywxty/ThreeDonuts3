@@ -2,8 +2,8 @@
 
 /*raiz*/
 :root {
-  --bg1:#ffc6d0;           
-  --bg2:#b0ffff;           
+  --bg1:#ffe9ed;           
+  --bg2:#abffff;           
   --card:#ffffff;
   --accent:#ff6ba8;    
   --text:#2a2a2a;
@@ -11,7 +11,7 @@
   --radius:12px;
   --container-width:1100px;
   --gap:1.25rem;
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: "Grandstander", cursive;
 }
 
 * { box-sizing:border-box }
@@ -23,6 +23,7 @@ body {
     background-attachment: fixed;
     color: var(--text);
     line-height: 1.5;
+    font-style: #2a2a2a;
 }
 
 /*class conteiner*/
