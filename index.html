@@ -15,10 +15,12 @@
 <!--cabeçário - logo-->
 <header class="site-header">
   <div class="container header-flex" style="position: relative;">
-    <h3>Three Donuts</h3>
-    <a href="#home" class="logo">
-      <img src="imagens/logo .png" alt="Logo da Three Donuts">
-    </a>
+    <div class="logo-flex">
+      <a href="#home" class="logo">
+        <img src="imagens/logo .png" alt="Logo da Three Donuts">
+      </a>
+      <span class="logo-title-header">Three Donuts</span>
+    </div>
   <!--Inicio - botões do cabeçário-->
     <nav class="nav" aria-label="Navegação principal">
       <ul>
@@ -77,25 +79,27 @@
 
 <!--Tabela - horários-->
   <section class="container">
-
     <h2>Horário de Funcionamento</h2>
-
-    <table>
-      
-      <tr>
-        <th>Dia</th>
-        <th>Horário</th>
-      </tr>
-      <tr>
-        <td>Segunda a Sábado</td>
-        <td>13h às 20h</td>
-      </tr>
-      <tr>
-        <td>Domingo</td>
-        <td>Fechado</td>
-      </tr>
-    
-    </table>
+    <div class="tabela-horario-wrapper">
+      <table class="tabela-horario">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Horário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Segunda a Sábado</td>
+            <td>13h às 20h</td>
+          </tr>
+          <tr>
+            <td>Domingo</td>
+            <td>Fechado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section id="produtos" class="container section grid">
@@ -183,7 +187,21 @@
     <div class="container hero-inner">
       <h1>Carrinho de compras</h1>
       <p>Pague seus Donuts e acompanhamentos aqui!</p>
+      <ul id="lista-pedidos" class="lista-pedidos"></ul>
       <p id="total-carrinho">Total: R$ 0,00</p>
+      <form id="form-entrega" style="margin:2rem 0; background:#fff8fa; border-radius:12px; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); max-width:420px;">
+        <h3 style="margin-top:0;">Informações para Entrega</h3>
+        <label>Nome completo:<br><input type="text" name="nome" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Endereço completo:<br><input type="text" name="endereco" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Data da entrega:<br><input type="date" name="data" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Horário da entrega:<br><input type="time" name="hora" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Detalhes do pedido (tipo, quantidade, restrições):<br><textarea name="detalhes" required style="width:100%;margin-bottom:8px;"></textarea></label><br>
+        <label>Contato do cliente:<br><input type="tel" name="contato_cliente" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Contato do restaurante:<br><input type="tel" name="contato_restaurante" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Contato do entregador:<br><input type="tel" name="contato_entregador" required style="width:100%;margin-bottom:8px;"></label><br>
+        <button type="submit" class="btn">Confirmar dados para compra</button>
+        <p id="entrega-status" style="color:crimson;margin-top:8px;"></p>
+      </form>
       <div class="formas-pagamento">
         <button class="btn-pagamento">Pix</button>
         <button class="btn-pagamento">Crédito</button>
@@ -191,9 +209,6 @@
         <button class="btn-pagamento">Boleto</button>
       </div>
       <button id="btn-pagar" class="btn-pagar">Pagar</button>
-
-
-
     </div>
   </section>
 
@@ -210,8 +225,8 @@
         <input type="email" name="email" required placeholder="seu@exemplo.com" />
       </label>
       <label>
-        Mensagem
-        <textarea type= "text" name="message" style="display: block; width: 200px;" required placeholder="Escreva sua mensagem"></textarea>
+  Mensagem
+  <textarea type="text" name="message" required placeholder="Escreva sua mensagem"></textarea>
       </label>
       <button type="submit" class="btn">Enviar</button>
       <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
@@ -223,8 +238,13 @@
 <footer class="site-footer">
   <div class="container">
     <p class="small">Feito com amor e muito açúcar</p>
-    <a href="https://www.instagram.com/three.donuts05/">Instagram</a>
-    <p>E-mail: Three.Donuts05@gmail.com</p>
+    <a href="https://www.instagram.com/three.donuts05/" target="_blank" rel="noopener" style="display:inline-block;vertical-align:middle;">
+      <img src="imagens/icon-instagram.png" alt="Instagram" style="height:28px;width:28px;vertical-align:middle;" />
+    </a>
+    <a href="mailto:Three.Donuts05@gmail.com" style="display:inline-block;vertical-align:middle;text-decoration:none;color:inherit;">
+      <img src="imagens/icon-email.png" alt="E-mail para Three.Donuts05@gmail.com" style="height:28px;width:28px;vertical-align:middle;margin-right:6px;" />
+      <span style="vertical-align:middle;font-size:1rem;">Three.Donuts05@gmail.com</span>
+    </a>
     <p>© <span id="year"></span> Three Donuts. Todos os direitos reservados.</p>
   </div>
 </footer>

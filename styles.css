@@ -1,3 +1,60 @@
+/* Tabela de horários estilizada */
+.tabela-horario-wrapper {
+  margin: 2rem 0 2.5rem 0;
+}
+.tabela-horario {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 340px;
+  background: #fff8fa;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(255,178,210,0.10), 0 1.5px 0 #ffb2d2 inset;
+  overflow: hidden;
+  font-size: 1.08rem;
+}
+.tabela-horario th, .tabela-horario td {
+  padding: 1rem 2.2rem;
+  text-align: center;
+}
+.tabela-horario th {
+  background: #ffb2d2;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #ffe5eb;
+}
+.tabela-horario tr:not(:last-child) td {
+  border-bottom: 1px solid #ffe5eb;
+}
+.tabela-horario td {
+  color: #b48bb2;
+  background: #fff;
+}
+.tabela-horario tr:last-child td {
+  border-bottom: none;
+}
+/* Lista de pedidos do carrinho */
+#lista-pedidos {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#lista-pedidos li {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background: #fff8fa;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  font-size: 1.05rem;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /*OBS: btn = botão/ões*/
 
 /*raiz*/
@@ -52,12 +109,17 @@ body {
   width:auto;
   display:block;
 }
-.site-header h3 {
-  font-size:1.8rem;
-  color:black;
-  position:absolute;
-  left:120px;
-  top:20px;
+.logo-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo-title-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #b48bb2; /* tom suave, combina com a logo */
+  letter-spacing: 1px;
+  opacity: 0.88;
 }
 
 /*rodapé*/
@@ -285,7 +347,7 @@ body {
   font:inherit;
   background:white;
   display: block;
-  width: 200px
+  width: 340px
  }
 .form-status {
    font-size:.9rem;
@@ -293,7 +355,7 @@ body {
   }
 
   #contact-form .btn {
-  width: 200px;  
+  width: 340px;
   align-self: flex-start;
   color: #ffffff;
 }

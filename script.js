@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Controle de formulário de entrega obrigatório
+  let entregaLiberada = false;
+  const formEntrega = document.getElementById('form-entrega');
+  const entregaStatus = document.getElementById('entrega-status');
+  if (formEntrega) {
+    formEntrega.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const dados = new FormData(formEntrega);
+      let ok = true;
+      for (let [k, v] of dados.entries()) {
+        if (!v || v.trim() === '') ok = false;
+      }
+      if (!ok) {
+        if (entregaStatus) entregaStatus.textContent = 'Preencha todos os campos corretamente!';
+        entregaLiberada = false;
+        return;
+      }
+      entregaLiberada = true;
+      if (entregaStatus) entregaStatus.textContent = '';
+      alert('Dados de entrega confirmados! Agora você pode finalizar sua compra.');
+    });
+  }
   //  Utilidades 
   const fmtBRL = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
 
@@ -70,6 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let total = 0;
   let metodoPagamento = null;
   const totalElement = document.getElementById('total-carrinho');
+  const listaPedidos = document.getElementById('lista-pedidos');
+  let pedidos = [];
 
   // Compra dos cards
   document.querySelectorAll('.card').forEach((card) => {
@@ -78,12 +102,36 @@ document.addEventListener('DOMContentLoaded', () => {
     buyBtn.addEventListener('click', () => {
       const priceEl = card.querySelector('strong, .price');
       const priceText = priceEl ? priceEl.textContent : '';
+      const nameEl = card.querySelector('h3');
+      const nome = nameEl ? nameEl.textContent : 'Donut';
       // Extrai número de BRL (ex.: "R$ 12,50")
       const numeric = priceText.replace(/[^\d,.-]/g, '').replace(/\.(?=\d{3}(\D|$))/g, '').replace(',', '.');
       const price = parseFloat(numeric) || 0;
+      pedidos.push({ nome, price });
       total += price;
-      if (totalElement) totalElement.textContent = `Total: ${fmtBRL(total)}`;
+      atualizarListaPedidos();
     });
+  function atualizarListaPedidos() {
+    if (!listaPedidos) return;
+    listaPedidos.innerHTML = '';
+    pedidos.forEach((item, idx) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${item.nome} - ${fmtBRL(item.price)}</span> <button class="btn-remover" title="Remover item" data-idx="${idx}">🗑️</button>`;
+      listaPedidos.appendChild(li);
+    });
+    if (totalElement) totalElement.textContent = `Total: ${fmtBRL(total)}`;
+    // Adiciona evento aos botões de remover
+    listaPedidos.querySelectorAll('.btn-remover').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt(btn.getAttribute('data-idx'));
+        if (!isNaN(idx)) {
+          total -= pedidos[idx].price;
+          pedidos.splice(idx, 1);
+          atualizarListaPedidos();
+        }
+      });
+    });
+  }
   });
 
   // Seleção de forma de pagamento
@@ -101,11 +149,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const pagarBtn = document.getElementById('btn-pagar');
   if (pagarBtn) {
     pagarBtn.addEventListener('click', () => {
-      if (total > 0) {
+      if (!entregaLiberada) {
+        alert('Preencha o formulário de entrega para finalizar a compra!');
+        if (formEntrega) formEntrega.scrollIntoView({behavior:'smooth'});
+        return;
+      }
+      if (total > 0 && pedidos.length > 0) {
         const resumo = metodoPagamento ? `\nForma: ${metodoPagamento}` : '';
-        alert(`Obrigado pela compra!${resumo}\nTotal: ${fmtBRL(total)}`);
+        let lista = pedidos.map(p => `- ${p.nome}: ${fmtBRL(p.price)}`).join('\n');
+        alert(`Obrigado pela compra!${resumo}\nItens:\n${lista}\nTotal: ${fmtBRL(total)}`);
         total = 0;
         metodoPagamento = null;
+        pedidos = [];
+        atualizarListaPedidos();
         if (totalElement) totalElement.textContent = `Total: ${fmtBRL(0)}`;
         pagamentoBtns.forEach((b) => b.classList.remove('selected'));
       } else {
