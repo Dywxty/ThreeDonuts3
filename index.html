@@ -193,12 +193,9 @@
         <h3 style="margin-top:0;">Informações para Entrega</h3>
         <label>Nome completo:<br><input type="text" name="nome" required style="width:100%;margin-bottom:8px;"></label><br>
         <label>Endereço completo:<br><input type="text" name="endereco" required style="width:100%;margin-bottom:8px;"></label><br>
-        <label>Data da entrega:<br><input type="date" name="data" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Contato:<input type="text" name="contato" required style="width:100%;margin-bottom:8px;"></label><br>
         <label>Horário da entrega:<br><input type="time" name="hora" required style="width:100%;margin-bottom:8px;"></label><br>
-        <label>Detalhes do pedido (tipo, quantidade, restrições):<br><textarea name="detalhes" required style="width:100%;margin-bottom:8px;"></textarea></label><br>
-        <label>Contato do cliente:<br><input type="tel" name="contato_cliente" required style="width:100%;margin-bottom:8px;"></label><br>
-        <label>Contato do restaurante:<br><input type="tel" name="contato_restaurante" required style="width:100%;margin-bottom:8px;"></label><br>
-        <label>Contato do entregador:<br><input type="tel" name="contato_entregador" required style="width:100%;margin-bottom:8px;"></label><br>
+        <label>Detalhes do pedido (observação, restrição alimentar, personalização...):<br><textarea name="detalhes" required style="width:100%;margin-bottom:8px;"></textarea></label><br>
         <button type="submit" class="btn">Confirmar dados para compra</button>
         <p id="entrega-status" style="color:crimson;margin-top:8px;"></p>
       </form>
@@ -222,12 +219,8 @@
       </label>
       <label>
         Email
-        <input type="email" name="email" required placeholder="seu@exemplo.com" />
-      </label>
-      <label>
-  Mensagem
-  <textarea type="text" name="message" required placeholder="Escreva sua mensagem"></textarea>
-      </label>
+        <input type="email" name="email" required placeholder="seu@exemplo.com" /></label>
+      <label>Mensagem<textarea type="text" name="message" required placeholder="Escreva sua mensagem"></textarea></label>
       <button type="submit" class="btn">Enviar</button>
       <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
     </form>
